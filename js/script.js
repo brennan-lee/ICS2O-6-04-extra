@@ -15,9 +15,14 @@ if (navigator.serviceWorker) {
   })
 }
 
-/**
- * This function displays an alert.
- */
-function myButtonClicked() {
-  document.getElementById("hello-world").innerHTML = "<p>Hello, World!</p>"
+function start() {
+  const params = new URLSearchParams(document.location.search)
+  const fahrenheit = params.get("f")
+
+  document.getElementById("fahrenheit").innerHTML =
+    "The temperature in fahrenheit is: " + fahrenheit + "℉."
+
+  const celsius = ((fahrenheit - 32) * 5) / 9
+  document.getElementById("celsius").innerHTML =
+    "The temperature in celsius is: " + celsius.toFixed(2) + "℃."
 }
